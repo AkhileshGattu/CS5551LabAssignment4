@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="DirectionandWeather">
+<head>
+    <meta t="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Angular Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="DirectionandWeather.js"></script>
+
+    <style>
+        #map-canvas {
+            width: 650px;
+            height: 450px;
+        }
+        .weatherModule {
+            background:#f2f2f2;
+            height:150px;
+            width:250px;
+            border: 1px dashed #ccc;
+            padding: 1em;
+        }
+        .wrapper
+        {
+            width:980px;
+            margin:0 auto;
+        }
+
+
+        .currentConditions {
+            float: left;
+        }
+        .weatherModule {
+            padding: 1em;
+        }
+
+        .currentIcon {
+            float: left;
+            margin: 0 .75em;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper" ng-controller="googlemapoutput">
+        From: <input type="text"  ng-model="startlocation" id="startlocation"/>
+        To: <input type="text"  ng-model="endlocation" id="endlocation" />
+        <button id="btn" ng-click="calcRoute()">
+            Get Direction
+        </button>
+        <button id="btn1" ng-click="getWeather(startlocation,endlocation)"> Show Weather </button>
+        <br/>
+        <p>Source Weather: </p>{{ temp }}
+        <p>Destination Weather: </p>{{temp1}}
+    <div id="map-canvas" style="height: 400px;"></div>
+</div>
+</body>
+</html>
